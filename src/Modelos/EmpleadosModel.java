@@ -27,7 +27,7 @@ public DefaultTableModel ListarDatos()
         Conexion nuevaConexion = new Conexion();
         MyConexion = nuevaConexion.Conectar();
         Statement sentencia = MyConexion.createStatement();
-        result = sentencia.executeQuery("select * from Empleados");
+        result = sentencia.executeQuery("select * from Empleados2");
         
         
             while(result.next())
@@ -55,7 +55,7 @@ public void Actualizar(int codigo, String Apellidos, String Nombre, String telef
             Conexion nuevaConexion = new Conexion();
             MyConexion = nuevaConexion.Conectar();
             Statement sentencia = MyConexion.createStatement();
-            sentencia.executeQuery("Update Empleados set Apellidos ="+"'"+Apellidos+"',Nombres="+"'"+Nombre+"',Telefono="+"'"+telefono+"' where idEmpleados="+"'"+codigo+"'");
+            sentencia.executeQuery("Update Empleados2 set Apellidos ="+"'"+Apellidos+"',Nombres="+"'"+Nombre+"',Telefono="+"'"+telefono+"' where idEmpleados="+"'"+codigo+"'");
         }
         catch(SQLException ex)
         {
@@ -71,7 +71,7 @@ public void Guardar(int codigo, String Apellidos, String Nombres, String Telefon
             Conexion nuevaConexion = new Conexion();
             MyConexion = nuevaConexion.Conectar();
             Statement sentencia = MyConexion.createStatement();
-            sentencia.executeQuery("Insert into Empleados values("+"'"+Apellidos+"',"+"'"+Nombres+"',"+"'"+Telefono+"',"+"'"+codigo+"')");
+            sentencia.executeQuery("Insert into Empleados2 values("+"'"+codigo+"',"+"'"+Apellidos+"',"+"'"+Nombres+"',"+"'"+Telefono+"')");
         }
         catch(SQLException ex)
         {
@@ -86,7 +86,7 @@ public void Eliminar(int codigo, String Apellidos, String Nombres, String Telefo
             Conexion nuevaConexion = new Conexion();
             MyConexion = nuevaConexion.Conectar();
             Statement sentencia = MyConexion.createStatement();
-            sentencia.executeQuery("delete from Empleados where idEmpleados="+"'"+codigo+"'");
+            sentencia.executeQuery("delete from Empleados2 where idEmpleados="+"'"+codigo+"'");
 
         }
             catch(SQLException ex)
