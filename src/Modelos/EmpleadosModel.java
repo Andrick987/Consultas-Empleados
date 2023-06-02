@@ -9,7 +9,44 @@ public class EmpleadosModel {
 Connection MyConexion;
 ResultSet result;
 
+public DefaultTableModel ListarDatosConsulta(String consulta)
+{
+    DefaultTableModel TablaModelo = new DefaultTableModel();
+    TablaModelo.setRowCount(0);
+    TablaModelo.setColumnCount(0);
+    
+        
+        TablaModelo.addColumn("Apellidos");
+        TablaModelo.addColumn("Nombres");
+        TablaModelo.addColumn("Telefono");
+        TablaModelo.addColumn("idEmpleado");
 
+
+    try
+    {
+        Conexion nuevaConexion = new Conexion();
+        MyConexion = nuevaConexion.Conectar();
+        Statement sentencia = MyConexion.createStatement();
+        result = sentencia.executeQuery(consulta);
+        
+        
+            while(result.next())
+            {
+                TablaModelo.addRow(new Object[]{
+                result.getString("Apellidos"),
+                result.getString("Nombres"),
+                result.getString("Telefono"),
+                result.getInt("idEmpleado")});
+            }
+        return TablaModelo;
+    }
+    
+    catch(SQLException e)
+    {
+        JOptionPane.showMessageDialog(null, "No se Pudo Listar Empleados...."+e.getMessage());
+    }
+    return TablaModelo;
+}
 
 public DefaultTableModel ListarDatos()
 {
@@ -95,5 +132,6 @@ public void Eliminar(int codigo, String Apellidos, String Nombres, String Telefo
             JOptionPane.showMessageDialog(null, "No se pudo eliminar..."+ex.getMessage());
         }  
 }
+
 
 }

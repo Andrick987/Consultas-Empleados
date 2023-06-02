@@ -73,6 +73,7 @@ public class EmpleadosController implements ActionListener, MouseListener{
 
     @Override
     public void actionPerformed(ActionEvent e) {
+        
         if(e.getSource() == this.VistaPrincipal.miAdministrar)
         {
             this.VistaEmpleados.setVisible(true);
@@ -83,7 +84,8 @@ public class EmpleadosController implements ActionListener, MouseListener{
         }
         if(e.getSource() == this.VistaConsultas.btnEjecutar)
         {
-            this.VistaEmpleados.setVisible(true);
+            DefaultTableModel TablaModelo2 = this.ModeloEmpleado.ListarDatosConsulta(this.VistaConsultas.txtConsulta.getText());
+                this.VistaConsultas.tblConsultas.setModel(TablaModelo2);
         }
         if(e.getSource() == this.VistaEmpleados.btn_Editar)
         {
