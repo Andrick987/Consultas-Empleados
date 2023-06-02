@@ -10,6 +10,7 @@ Connection MyConexion;
 ResultSet result;
 
 
+
 public DefaultTableModel ListarDatos()
 {
     DefaultTableModel TablaModelo = new DefaultTableModel();

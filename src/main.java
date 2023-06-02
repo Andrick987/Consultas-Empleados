@@ -12,10 +12,11 @@ public class main {
         // TODO code application logic here
         frmPrincipal VistaPrincipal = new frmPrincipal();
         EmpleadosModel ModeloEmpleados = new EmpleadosModel();
+        frmConsultas VistaConsultas = new frmConsultas(VistaPrincipal, true);
         frmEmpleados VistaEmpleados = new frmEmpleados(VistaPrincipal,true);
         
-        EmpleadosController ControladorEmpleados = new EmpleadosController(VistaEmpleados,VistaPrincipal,ModeloEmpleados);
+        EmpleadosController ControladorEmpleados = new EmpleadosController(VistaEmpleados,VistaConsultas ,VistaPrincipal,ModeloEmpleados);
         
-    }
+    }//Umg$2023
     
 }

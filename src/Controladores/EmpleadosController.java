@@ -16,13 +16,15 @@ import javax.swing.table.DefaultTableModel;
  */
 public class EmpleadosController implements ActionListener, MouseListener{
  frmEmpleados VistaEmpleados;
+ frmConsultas VistaConsultas;
  frmPrincipal VistaPrincipal;
  EmpleadosModel ModeloEmpleado;
  
     
 
-    public EmpleadosController(frmEmpleados VistaEmpleados, frmPrincipal VistaPrincipal, EmpleadosModel ModeloEmpleado) {
+    public EmpleadosController(frmEmpleados VistaEmpleados,frmConsultas VistaConsultas , frmPrincipal VistaPrincipal, EmpleadosModel ModeloEmpleado) {
         this.VistaEmpleados = VistaEmpleados;
+        this.VistaConsultas = VistaConsultas;
         this.VistaPrincipal = VistaPrincipal;
         this.ModeloEmpleado = ModeloEmpleado;
         
@@ -33,6 +35,9 @@ public class EmpleadosController implements ActionListener, MouseListener{
       /*PONER A LA ESCUCHA LOS BOTONES*/
       this.VistaEmpleados.btn_Agregar.addActionListener(this);
       this.VistaEmpleados.btn_Editar.addActionListener(this);
+      this.VistaPrincipal.miAdministrar.addActionListener(this);
+      this.VistaPrincipal.miConsultar.addActionListener(this);
+      this.VistaConsultas.btnEjecutar.addActionListener(this);
       this.VistaEmpleados.btnEliminar.addActionListener(this);
         
       /*REALIZAR LA CONEXION*/
@@ -63,11 +68,23 @@ public class EmpleadosController implements ActionListener, MouseListener{
         
         /*LEVANTAR LA VISTA EMPLEADOR*/
       this.VistaEmpleados.setLocationRelativeTo(null);
-      this.VistaEmpleados.setVisible(true);
+      this.VistaEmpleados.setVisible(false);
     }
 
     @Override
     public void actionPerformed(ActionEvent e) {
+        if(e.getSource() == this.VistaPrincipal.miAdministrar)
+        {
+            this.VistaEmpleados.setVisible(true);
+        }
+        if(e.getSource() == this.VistaPrincipal.miConsultar)
+        {
+            this.VistaConsultas.setVisible(true);
+        }
+        if(e.getSource() == this.VistaConsultas.btnEjecutar)
+        {
+            this.VistaEmpleados.setVisible(true);
+        }
         if(e.getSource() == this.VistaEmpleados.btn_Editar)
         {
             this.ModeloEmpleado.Actualizar(Integer.parseInt(this.VistaEmpleados.txtCodigo.getText()),

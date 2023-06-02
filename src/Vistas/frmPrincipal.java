@@ -27,7 +27,28 @@ public class frmPrincipal extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jMenuBar1 = new javax.swing.JMenuBar();
+        mnMenu = new javax.swing.JMenu();
+        miAdministrar = new javax.swing.JMenuItem();
+        miConsultar = new javax.swing.JMenuItem();
+        mnBuscar = new javax.swing.JMenu();
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        mnMenu.setText("Menu");
+
+        miAdministrar.setText("Administrar Empleados");
+        mnMenu.add(miAdministrar);
+
+        miConsultar.setText("Consultar Empleados");
+        mnMenu.add(miConsultar);
+
+        jMenuBar1.add(mnMenu);
+
+        mnBuscar.setText("Editar");
+        jMenuBar1.add(mnBuscar);
+
+        setJMenuBar(jMenuBar1);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -37,7 +58,7 @@ public class frmPrincipal extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGap(0, 278, Short.MAX_VALUE)
         );
 
         pack();
@@ -79,5 +100,10 @@ public class frmPrincipal extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JMenuBar jMenuBar1;
+    public javax.swing.JMenuItem miAdministrar;
+    public javax.swing.JMenuItem miConsultar;
+    private javax.swing.JMenu mnBuscar;
+    public javax.swing.JMenu mnMenu;
     // End of variables declaration//GEN-END:variables
 }
