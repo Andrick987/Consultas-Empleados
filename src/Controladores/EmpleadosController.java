@@ -84,7 +84,7 @@ public class EmpleadosController implements ActionListener, MouseListener{
         }
         if(e.getSource() == this.VistaConsultas.btnEjecutar)
         {
-            DefaultTableModel TablaModelo2 = this.ModeloEmpleado.ListarDatosConsulta(this.VistaConsultas.txtConsulta.getText());
+            DefaultTableModel TablaModelo2 = this.ModeloEmpleado.Consultar(this.VistaConsultas.txtConsulta.getText());
                 this.VistaConsultas.tblConsultas.setModel(TablaModelo2);
         }
         if(e.getSource() == this.VistaEmpleados.btn_Editar)

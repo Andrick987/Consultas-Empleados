@@ -9,7 +9,7 @@ public class EmpleadosModel {
 Connection MyConexion;
 ResultSet result;
 
-public DefaultTableModel ListarDatosConsulta(String consulta)
+public DefaultTableModel Consultar(String consulta)
 {
     DefaultTableModel TablaModelo = new DefaultTableModel();
     TablaModelo.setRowCount(0);
